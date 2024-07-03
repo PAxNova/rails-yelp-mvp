@@ -1,0 +1,26 @@
+<!-- app/views/restaurants/show.html.erb -->
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+
+<h2>Reviews</h2>
+<%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.rating %></td>
+        <td><%= review.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %>

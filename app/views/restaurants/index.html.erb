@@ -1,0 +1,23 @@
+<!-- app/views/restaurants/index.html.erb -->
+<h1>All Restaurants</h1>
+<%= link_to 'Add New Restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td>
+          <%= link_to 'Show', restaurant_path(restaurant), class: 'btn btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
